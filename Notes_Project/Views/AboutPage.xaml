@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Notes_Project.Models"
+             x:Class="Notes_Project.Views.AboutPage">
+    
+    <ContentPage.BindingContext>
+        <models:About/>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout Spacing="10" Margin="10">
+        <HorizontalStackLayout Spacing="10">
+            <Image Source="angeldavidstudios.jpg"
+                   SemanticProperties.Description="The dot net bot waving hello!"
+                   HeightRequest="64" />
+            <Label FontSize="20" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
+            <Label FontSize="20" Text="{Binding Asignatura}" VerticalOptions="End" />
+        </HorizontalStackLayout>
+        
+        <HorizontalStackLayout Spacing="10">
+            <Label FontSize="22" FontAttributes="Bold" Text="{Binding TittleName}" VerticalOptions="End" />
+            <Label FontSize="22" Text="{Binding Name}" VerticalOptions="End" />
+        </HorizontalStackLayout>
+        
+        <HorizontalStackLayout Spacing="10">
+            <Label FontSize="22" FontAttributes="Bold" Text="{Binding TittleProject}" VerticalOptions="End" />
+            <Label FontSize="22" Text="{Binding Taller}" VerticalOptions="End" />
+        </HorizontalStackLayout>
+
+        <Label Text="{Binding Description}" />
+        <Button Text="Mi portafolio" Clicked="LearnMore_Clicked" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,4 +1,4 @@
-﻿namespace Notes_Project;
+﻿namespace Notes_Project.Views;
 
 public partial class MainPage : ContentPage
 {
