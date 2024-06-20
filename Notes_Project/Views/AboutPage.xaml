@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:Notes_Project.Models"
              x:Class="Notes_Project.Views.AboutPage">
-    
-    <ContentPage.BindingContext>
-        <models:About/>
-    </ContentPage.BindingContext>
     
     <VerticalStackLayout Spacing="10" Margin="10">
         <HorizontalStackLayout Spacing="10">
@@ -28,6 +23,7 @@
         </HorizontalStackLayout>
 
         <Label Text="{Binding Description}" />
-        <Button Text="Mi portafolio" Clicked="LearnMore_Clicked" />
+        <Button Text="Mi portafolio"
+                Command="{Binding ShowMoreInfoCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

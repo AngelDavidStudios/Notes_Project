@@ -1,3 +1,5 @@
+using Notes_Project.ViewModels;
+
 namespace Notes_Project.Views;
 
 public partial class AboutPage : ContentPage
@@ -5,11 +7,6 @@ public partial class AboutPage : ContentPage
     public AboutPage()
     {
         InitializeComponent();
-    }
-
-    private async void LearnMore_Clicked(object sender, EventArgs e)
-    {
-        if (BindingContext is Models.About about)
-            await Launcher.Default.OpenAsync(about.Instagram);
+        BindingContext = new AboutViewModel();
     }
 }
