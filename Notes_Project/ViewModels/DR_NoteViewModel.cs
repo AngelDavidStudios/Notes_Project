@@ -5,10 +5,10 @@ using Notes_Project.Models;
 
 namespace Notes_Project.ViewModels;
 
-public partial class NoteViewModel: ObservableObject, IQueryAttributable
+public partial class DR_NoteViewModel: ObservableObject, IQueryAttributable
 {
     [ObservableProperty]
-    private Note _note;
+    private DR_Note _note;
     
     public string _text => _note.Text;
     public DateTime Date => _note.Date;
@@ -17,7 +17,7 @@ public partial class NoteViewModel: ObservableObject, IQueryAttributable
     public ICommand SaveCommand { get; private set; }
     public ICommand DeleteCommand { get; private set; }
     
-    public NoteViewModel(Models.Note note)
+    public DR_NoteViewModel(DR_Note note)
     {
         _note = note;
         SaveCommand = new AsyncRelayCommand(Save);
@@ -41,14 +41,14 @@ public partial class NoteViewModel: ObservableObject, IQueryAttributable
     {
         if (query.ContainsKey("load"))
         {
-            _note = Models.Note.Load(query["load"].ToString());
+            _note = DR_Note.Load(query["load"].ToString());
             RefreshProperties();
         }
     }
     
     public void Reload()
     {
-        _note = Models.Note.Load(_note.Filename);
+        _note = DR_Note.Load(_note.Filename);
         RefreshProperties();
     }
 

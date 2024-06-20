@@ -8,11 +8,11 @@ public partial class AllNotesPage : ContentPage
     public AllNotesPage()
     {
         InitializeComponent();
-        BindingContext = new NotesViewModel();
+        BindingContext = new DR_NotesViewModel();
     }
     
-    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    private void DR_ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
-        notesCollection.SelectedItem = null;
+        DR_notesCollection.SelectedItem = null;
     }
 }

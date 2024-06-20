@@ -5,14 +5,19 @@
              x:Class="Notes_Project.Views.NotePage"
              Title="Note">
     
-    <VerticalStackLayout Spacing="10" Margin="5">
-        <Editor x:Name="TextEditor"
+    <VerticalStackLayout x:Name="DR_VSLayout"
+                         Spacing="10" 
+                         Margin="5">
+        <Editor x:Name="DR_TextEditor"
                 Placeholder="Enter your note"
                 Text="{Binding Text}"
                 HeightRequest="100" />
 
-        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-            <Button Text="Save"
+        <Grid x:Name="DR_Grid"
+              ColumnDefinitions="*,*" 
+              ColumnSpacing="4">
+            <Button x:Name="DR_btnSave"
+                    Text="Save"
                     Command="{Binding SaveCommand}" />
 
             <Button Grid.Column="1"

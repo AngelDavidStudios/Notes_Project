@@ -5,10 +5,10 @@ namespace Notes_Project.Views;
 
 public partial class NotePage : ContentPage
 {
-    private Note _NoteModel;
+    private DR_Note _NoteModel;
     public NotePage()
     {
         InitializeComponent();
-        BindingContext = new NoteViewModel(_NoteModel);
+        BindingContext = new DR_NoteViewModel(_NoteModel);
     }
 }

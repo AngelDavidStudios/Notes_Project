@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Notes_Project.ViewModels;
 
-public class AboutViewModel
+public class DR_AboutViewModel
 {
     public string Title => "Materia: ";
     public string Asignatura => "Programacion IV";
@@ -18,12 +18,11 @@ public class AboutViewModel
     public string Version => AppInfo.VersionString;
     public ICommand ShowMoreInfoCommand { get; }
 
-    public AboutViewModel()
+    public DR_AboutViewModel()
     {
         ShowMoreInfoCommand = new AsyncRelayCommand(ShowMoreInfo);
     }
 
     async Task ShowMoreInfo() =>
         await Launcher.Default.OpenAsync(Instagram);
-    
 }

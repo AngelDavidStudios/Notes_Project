@@ -3,27 +3,56 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Notes_Project.Views.AboutPage">
     
-    <VerticalStackLayout Spacing="10" Margin="10">
-        <HorizontalStackLayout Spacing="10">
-            <Image Source="angeldavidstudios.jpg"
+    <VerticalStackLayout x:Name="DR_VstackLayout"
+                         Spacing="10" 
+                         Margin="10">
+        <HorizontalStackLayout x:Name="DR_HstackLayout"
+                               Spacing="10">
+            <Image x:Name="DR_Image"
+                   Source="angeldavidstudios.jpg"
                    SemanticProperties.Description="The dot net bot waving hello!"
                    HeightRequest="64" />
-            <Label FontSize="20" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
-            <Label FontSize="20" Text="{Binding Asignatura}" VerticalOptions="End" />
+            <Label x:Name="DR_lblTitle"
+                   FontSize="20" 
+                   FontAttributes="Bold" 
+                   Text="{Binding Title}" 
+                   VerticalOptions="End" />
+            <Label x:Name="DR_lblAsignatura"
+                   FontSize="20" 
+                   Text="{Binding Asignatura}" 
+                   VerticalOptions="End" />
         </HorizontalStackLayout>
         
-        <HorizontalStackLayout Spacing="10">
-            <Label FontSize="22" FontAttributes="Bold" Text="{Binding TittleName}" VerticalOptions="End" />
-            <Label FontSize="22" Text="{Binding Name}" VerticalOptions="End" />
+        <HorizontalStackLayout x:Name="DR_HstackLayout2"
+                               Spacing="10">
+            <Label x:Name="DR_lblTittleName"
+                   FontSize="22" 
+                   FontAttributes="Bold" 
+                   Text="{Binding TittleName}" 
+                   VerticalOptions="End" />
+            <Label x:Name="DR_lblName"
+                   FontSize="22" 
+                   Text="{Binding Name}" 
+                   VerticalOptions="End" />
         </HorizontalStackLayout>
         
-        <HorizontalStackLayout Spacing="10">
-            <Label FontSize="22" FontAttributes="Bold" Text="{Binding TittleProject}" VerticalOptions="End" />
-            <Label FontSize="22" Text="{Binding Taller}" VerticalOptions="End" />
+        <HorizontalStackLayout x:Name="DR_HstackLayout3"
+                               Spacing="10">
+            <Label x:Name="DR_lblTittleProject"
+                   FontSize="22" 
+                   FontAttributes="Bold" 
+                   Text="{Binding TittleProject}" 
+                   VerticalOptions="End" />
+            <Label x:Name="DR_lblProject"
+                   FontSize="22" 
+                   Text="{Binding Taller}" 
+                   VerticalOptions="End" />
         </HorizontalStackLayout>
 
-        <Label Text="{Binding Description}" />
-        <Button Text="Mi portafolio"
+        <Label x:Name="DR_lblDescription"
+               Text="{Binding Description}" />
+        <Button x:Name="DR_btnMoreInfo"
+                Text="Mi portafolio"
                 Command="{Binding ShowMoreInfoCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

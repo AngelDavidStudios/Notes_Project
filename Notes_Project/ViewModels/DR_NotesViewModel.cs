@@ -5,17 +5,17 @@ using Notes_Project.Models;
 
 namespace Notes_Project.ViewModels;
 
-public class NotesViewModel: IQueryAttributable
+public class DR_NotesViewModel: IQueryAttributable
 {
-    public ObservableCollection<NoteViewModel> AllNotes { get; }
+    public ObservableCollection<DR_NoteViewModel> AllNotes { get; }
     public ICommand NewCommand { get; }
     public ICommand SelectNoteCommand { get; }
     
-    public NotesViewModel()
+    public DR_NotesViewModel()
     {
-        AllNotes = new ObservableCollection<ViewModels.NoteViewModel>(Models.Note.LoadAll().Select(n => new NoteViewModel(n)));
+        AllNotes = new ObservableCollection<DR_NoteViewModel>(DR_Note.LoadAll().Select(n => new DR_NoteViewModel(n)));
         NewCommand = new AsyncRelayCommand(NewNoteAsync);
-        SelectNoteCommand = new AsyncRelayCommand<ViewModels.NoteViewModel>(SelectNoteAsync);
+        SelectNoteCommand = new AsyncRelayCommand<DR_NoteViewModel>(SelectNoteAsync);
     }
     
     private async Task NewNoteAsync()
@@ -23,7 +23,7 @@ public class NotesViewModel: IQueryAttributable
         await Shell.Current.GoToAsync(nameof(Views.NotePage));
     }
 
-    private async Task SelectNoteAsync(ViewModels.NoteViewModel note)
+    private async Task SelectNoteAsync(DR_NoteViewModel note)
     {
         if (note != null)
             await Shell.Current.GoToAsync($"{nameof(Views.NotePage)}?load={note.Identifier}");
@@ -34,7 +34,7 @@ public class NotesViewModel: IQueryAttributable
         if (query.ContainsKey("deleted"))
         {
             string noteId = query["deleted"].ToString();
-            NoteViewModel matchedNote = AllNotes.Where((n) => n.Identifier == noteId).FirstOrDefault();
+            DR_NoteViewModel matchedNote = AllNotes.Where((n) => n.Identifier == noteId).FirstOrDefault();
 
             // If note exists, delete it
             if (matchedNote != null)
@@ -43,7 +43,7 @@ public class NotesViewModel: IQueryAttributable
         else if (query.ContainsKey("saved"))
         {
             string noteId = query["saved"].ToString();
-            NoteViewModel matchedNote = AllNotes.Where((n) => n.Identifier == noteId).FirstOrDefault();
+            DR_NoteViewModel matchedNote = AllNotes.Where((n) => n.Identifier == noteId).FirstOrDefault();
 
             // If note is found, update it
             if (matchedNote != null)
@@ -53,7 +53,7 @@ public class NotesViewModel: IQueryAttributable
             }
             // If note isn't found, it's new; add it.
             else
-                AllNotes.Insert(0, new NoteViewModel(Note.Load(noteId)));
+                AllNotes.Insert(0, new DR_NoteViewModel(DR_Note.Load(noteId)));
         }
     }
 }

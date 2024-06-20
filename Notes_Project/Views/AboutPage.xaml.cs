@@ -7,6 +7,6 @@ public partial class AboutPage : ContentPage
     public AboutPage()
     {
         InitializeComponent();
-        BindingContext = new AboutViewModel();
+        BindingContext = new DR_AboutViewModel();
     }
 }

@@ -4,15 +4,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Notes_Project.Views.AllNotesPage"
              Title="Mis Notas"
-             NavigatedTo="ContentPage_NavigatedTo">
+             NavigatedTo="DR_ContentPage_NavigatedTo">
     
     <!-- Add an item to the toolbar -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding NewCommand}" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
+        <ToolbarItem x:Name="DR_Ti"
+                     Text="Add" 
+                     Command="{Binding NewCommand}" 
+                     IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
     </ContentPage.ToolbarItems>
 
     <!-- Display notes in a list -->
-    <CollectionView x:Name="notesCollection"
+    <CollectionView x:Name="DR_notesCollection"
                     ItemsSource="{Binding AllNotes}"
                     Margin="20"
                     SelectionMode="Single"
@@ -20,15 +23,22 @@
                     SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
         <!-- Designate how the collection of items are laid out -->
         <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            <LinearItemsLayout x:Name="DR_ltl"
+                               Orientation="Vertical" 
+                               ItemSpacing="10" />
         </CollectionView.ItemsLayout>
 
         <!-- Define the appearance of each item in the list -->
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <StackLayout>
-                    <Label Text="{Binding Text}" FontSize="22"/>
-                    <Label Text="{Binding Date}" FontSize="14" TextColor="Silver"/>
+                    <Label x:Name="DR_lbltext"
+                           Text="{Binding Text}" 
+                           FontSize="22"/>
+                    <Label x:Name="DR_lblDate"
+                           Text="{Binding Date}" 
+                           FontSize="14" 
+                           TextColor="Silver"/>
                 </StackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>
